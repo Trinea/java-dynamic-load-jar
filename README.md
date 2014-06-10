@@ -27,7 +27,7 @@ TestC: ClassJar1.java or ClassJar2.java those contains CommonClass field can be 
 Loading projects to eclipse, run `java-dynamic-loader-host` as a Java Application
 
 ###Android
-It's simple in java, but not work for TestB and TestC on android, because dalvik pre-verification failed. [This](http://stackoverflow.com/questions/15761081/custom-class-loading-fails-with-java-lang-illegalaccesserror-class-ref-in-pre-v) may be solved it, but I have not try.  
+It's simple in java, but not work for TestB and TestC on android, because dalvik pre-verification failed. [This](http://stackoverflow.com/questions/15761081/custom-class-loading-fails-with-java-lang-illegalaccesserror-class-ref-in-pre-v) may solved it, but I have not try.  
 ```xml
 17:28:36.095: E/PluginDexClassLoader(1464): support class is loading.cn.trinea.java.dynamic.load.common.CommonClass, current loader:1110431216, commmon lib loader:1108712248, clazz:1110549272
 17:28:36.095: W/dalvikvm(1464): Class resolved by unexpected DEX: Lcn/trinea/java/dynamic/load/jar1/ChildCommonClass1;(0x422fd5f0):0x6838f000 ref [Lcn/trinea/java/dynamic/load/common/CommonClass;] Lcn/trinea/java/dynamic/load/common/CommonClass;(0x42159b38):0x65ae6000
