@@ -1,33 +1,32 @@
 java-dynamic-load-jar
 =====================
 
-Solve class loader isolation problem when load same classes in different jar
+Solve class loader isolation problem when load same classes in different jar, but not work for android because of dalvik pre-verification failed.
 
 ###Introduce
 
-[java-dynamic-loader-common](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-common)  
-only CommonClass.java  
+[java-dynamic-loader-common](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-common) Only CommonClass.java  
   
 [java-dynamic-loader-jar1](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-jar1)  
-1. ChildCommonClass1.java extend CommonClass  
+1. ChildCommonClass1.java extend CommonClass.java  
 2. ClassJar1.java contains CommonClass field
   
 [java-dynamic-loader-jar2](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-jar2)  
-1. ChildCommonClass2.java extend CommonClass  
+1. ChildCommonClass2.java extend CommonClass.java  
 2. ClassJar2.java contains CommonClass field
   
 [java-dynamic-loader-host](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-host)  
-1. JarClassLoader.java to load jar1 and jar2  
-2. HostMain.java to test  
-A. CommonClass loaded from jar1 and jar2 are equals  
-B. ChildCommonClass1 or ChildCommonClass2 can be reflected to CommonClass in host normaly  
-C. ClassJar1.java or ClassJar2.java those contains CommonClass field can be reflected and running normal.
+1. JarClassLoader.java to load jar1 and jar2, load from current ClassLoader first if class is CommonClass .  
+2. HostMain.java have 3 tests  
+TestA: CommonClass loaded from jar1 and jar2 are equals  
+TestB: ChildCommonClass1 or ChildCommonClass2 can be reflected to CommonClass in host normaly  
+TestC: ClassJar1.java or ClassJar2.java those contains CommonClass field can be reflected and running normal.
 
 ###Run
 Loading projects to eclipse, run `java-dynamic-loader-host` as a Java Application
 
 ###Android
-It's simple in java, but not work for testB and testC on android, because dalvik will pre-verification
+It's simple in java, but not work for TestB and TestC on android, because dalvik pre-verification failed.
 ```xml
 17:28:36.095: E/PluginDexClassLoader(1464): support class is loading.cn.trinea.java.dynamic.load.common.CommonClass, current loader:1110431216, commmon lib loader:1108712248, clazz:1110549272
 17:28:36.095: W/dalvikvm(1464): Class resolved by unexpected DEX: Lcn/trinea/java/dynamic/load/jar1/ChildCommonClass1;(0x422fd5f0):0x6838f000 ref [Lcn/trinea/java/dynamic/load/common/CommonClass;] Lcn/trinea/java/dynamic/load/common/CommonClass;(0x42159b38):0x65ae6000
