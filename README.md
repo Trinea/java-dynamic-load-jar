@@ -2,6 +2,9 @@ java-dynamic-load-jar
 =====================
 
 Solve class loader isolation problem when load same classes in different jar, but not work for android because of dalvik pre-verification failed, [cry...](https://github.com/Trinea/java-dynamic-load-jar#android "View Details")
+  
+![Class Diagram](https://farm4.staticflickr.com/3872/14301963930_2f0f0fe8aa_o.png)  
+中文文档介绍：[Java 加载不同依赖 Jar 中的公共类](http://www.trinea.cn/android/java-loader-common-class/ ‎)  
 
 ###Introduce
 
