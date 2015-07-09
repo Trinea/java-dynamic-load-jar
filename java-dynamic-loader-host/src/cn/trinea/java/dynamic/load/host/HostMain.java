@@ -70,7 +70,7 @@ public class HostMain {
             System.out.println("string1 after convert:" + commonClass1.getString());
 
             CommonClass commonClass2 = (CommonClass)classJar2Obj;
-            System.out.println("string1 after convert:" + commonClass2.getString());
+            System.out.println("string2 after convert:" + commonClass2.getString());
         } catch (Exception e) {
             e.printStackTrace();
         }
