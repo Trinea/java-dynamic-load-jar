@@ -3,10 +3,18 @@ Java Dynamic Load Jar
 
 Solve class loader isolation problem when load same classes in different jar, but not work for android because of dalvik pre-verification failed, [cry...](https://github.com/Trinea/java-dynamic-load-jar#android "View Details")
   
+
+### Dev Tools App
+The Dev Tools App is a powerful android development tool that can help you improve efficiency greatly, It can be used to view the latest open source projects, view activity history, view manifest, decompile, color picker, extract apk or so, view app info, open or close the options in the developer options quickly, and more.  
+  
+You can download it from **[DevTools@Google Play](https://play.google.com/store/apps/details?id=cn.trinea.android.developertools)**.  
+![](https://lh3.googleusercontent.com/ERb20Y50r3u_tZMMlqpH5cnS_MC_n366WoKvEjJyFfHz6d-EwvhaEUf7ZKAgRajboTWR=w720-h440-rw)  
+
+
 ![Class Diagram](https://farm4.staticflickr.com/3872/14301963930_2f0f0fe8aa_o.png)  
 中文文档介绍：[Java 加载不同依赖 Jar 中的公共类](http://www.trinea.cn/android/java-loader-common-class/ ‎)  
 
-###Introduce
+### Introduce
 
 [java-dynamic-loader-common](https://github.com/Trinea/java-dynamic-load-jar/tree/master/java-dynamic-loader-common)  
 Only CommonClass.java  
@@ -26,10 +34,10 @@ TestA: CommonClass loaded from jar1 and jar2 are equals
 TestB: ChildCommonClass1 or ChildCommonClass2 can be reflected to CommonClass in host normaly  
 TestC: ClassJar1.java or ClassJar2.java those contains CommonClass field can be reflected and running normal.
 
-###Run
+### Run
 Loading projects to eclipse, run `java-dynamic-loader-host` as a Java Application
 
-###Android
+### Android
 It's simple in java, but not work for TestB and TestC on android, because dalvik pre-verification failed. [This](http://stackoverflow.com/questions/15761081/custom-class-loading-fails-with-java-lang-illegalaccesserror-class-ref-in-pre-v) may solved it, but I have not try.  
 ```xml
 17:28:36.095: E/PluginDexClassLoader(1464): support class is loading.cn.trinea.java.dynamic.load.common.CommonClass, current loader:1110431216, commmon lib loader:1108712248, clazz:1110549272
